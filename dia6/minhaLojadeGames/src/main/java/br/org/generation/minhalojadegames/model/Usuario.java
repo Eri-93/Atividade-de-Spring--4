@@ -1,4 +1,4 @@
-package br.org.generation.blogpessoal.model;
+package br.org.generation.minhalojadegames.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table (name = "tb_usuario")
+@Table(name= "tb_usuario")
 public class Usuario {
 	
 	@Id
@@ -21,17 +21,12 @@ public class Usuario {
 	private String nome;
 	
 	@NotNull
-	@Size(min = 5, max = 100)
+	@Size(min= 5, max = 100)
 	private String usuario;
 	
 	@NotNull
-	@Size(min = 5)
+	@Size (min= 5)
 	private String senha;
-	
-	public Usuario(@NotNull String usuario, @NotNull String senha) {
-		this.usuario = usuario;
-		this.senha = senha;
-	}
 
 	public long getId() {
 		return id;

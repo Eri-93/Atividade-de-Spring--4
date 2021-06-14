@@ -20,7 +20,7 @@ import br.org.generation.minhalojadegames.repository.CategoriaRepository;
 
 @RestController
 @RequestMapping ("/categoria")
-@CrossOrigin ("*")
+@CrossOrigin (origins = "*", allowedHeaders = "*")
 public class CategoriaController {
 	
 	
@@ -33,13 +33,13 @@ public class CategoriaController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Categoria> GetById(@PathVariable long id){
+	public ResponseEntity<Categoria> getById(@PathVariable long id){
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());	
 	}
 	
 	@GetMapping("/tipo/{tipo}")
-	public ResponseEntity<List<Categoria>> GetByTipo (@PathVariable String tipo){
+	public ResponseEntity<List<Categoria>> getByTipo (@PathVariable String tipo){
 		return ResponseEntity.ok(repository.findAllByTipoContainingIgnoreCase (tipo));
 	}
 	@PostMapping
